@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="app.css">
+    <title>Wordle Clone</title>
+</head>
+
+<body>
+    <header id="main-header">Wordle</header>
+
+    <div id="container">
+        <div id="message-box"></div>
+
+        <div id="game-table">
+            <div class="row"></div>
+            <div class="row"></div>
+            <div class="row"></div>
+            <div class="row"></div>
+            <div class="row"></div>
+            <div class="row"></div>
+        </div>
+
+        <div id="keyboard">
+            <div class="row">
+                <button data-value="Q">Q</button>
+                <button data-value="W">W</button>
+                <button data-value="E">E</button>
+                <button data-value="R">R</button>
+                <button data-value="T">T</button>
+                <button data-value="Y">Y</button>
+                <button data-value="U">U</button>
+                <button data-value="I">I</button>
+                <button data-value="O">O</button>
+                <button data-value="P">P</button>
+            </div>
+            <div class="row">
+                <button data-value="A">A</button>
+                <button data-value="S">S</button>
+                <button data-value="D">D</button>
+                <button data-value="F">F</button>
+                <button data-value="G">G</button>
+                <button data-value="H">H</button>
+                <button data-value="J">J</button>
+                <button data-value="K">K</button>
+                <button data-value="L">L</button>
+            </div>
+            <div class="row">
+                <button class="big-key">ENTER</button>
+                <button data-value="Z">Z</button>
+                <button data-value="X">X</button>
+                <button data-value="C">C</button>
+                <button data-value="V">V</button>
+                <button data-value="B">B</button>
+                <button data-value="N">N</button>
+                <button data-value="M">M</button>
+                <button class="big-key">&#10229;</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="overlay"></div>
+    <div id="modal">
+        <header>
+            <h1 id="result"></h1>
+            <button id="modal-close-button">&times;</button>
+        </header>
+        <div id="content">
+            <h1 class="title">Statistics</h1>
+            <div id="statistics">
+                <div class="statistic-container">
+                    <div class="statistic"></div>
+                    <div class="label">Played</div>
+                </div>
+                <div class="statistic-container">
+                    <div class="statistic"></div>
+                    <div class="label">Win %</div>
+                </div>
+                <div class="statistic-container">
+                    <div class="statistic"></div>
+                    <div class="label">Current Streak</div>
+                </div>
+                <div class="statistic-container">
+                    <div class="statistic"></div>
+                    <div class="label">Max Streak</div>
+                </div>
+            </div>
+            <h1 class="title">Guess Distribution</h1>
+            <div id="graph-container">
+                <div class="graph-row">
+                    <div class="guess-num">1</div>
+                    <div class="graph-bar">0</div>
+                </div>
+                <div class="graph-row">
+                    <div class="guess-num">2</div>
+                    <div class="graph-bar">0</div>
+                </div>
+                <div class="graph-row">
+                    <div class="guess-num">3</div>
+                    <div class="graph-bar">0</div>
+                </div>
+                <div class="graph-row">
+                    <div class="guess-num">4</div>
+                    <div class="graph-bar">0</div>
+                </div>
+                <div class="graph-row">
+                    <div class="guess-num">5</div>
+                    <div class="graph-bar">0</div>
+                </div>
+                <div class="graph-row">
+                    <div class="guess-num">6</div>
+                    <div class="graph-bar">0</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="words.js"></script>
+    <script src="main.js"></script>
+    <script src="popups.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,306 @@
+body, html {
+    margin: 0;
+    height: 100vh;
+    background-color: #f5ebe0;
+    overflow: hidden;
+}
+
+#main-header {
+    height: 7%;
+    font: 700 32px "Noto Sans", sans-serif;
+    box-sizing: border-box;
+    border-bottom: 1px solid black;
+    background-color: #efcfb7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container {
+    width: 500px;
+    height: 93%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+#game-table {
+    flex-grow: 1;
+    display: grid;
+    padding: 10px 0;
+    row-gap: 5px;
+    font: 700 32px "Noto Sans", sans-serif;
+    justify-content: center;
+    align-content: center;
+    user-select: none;
+}
+
+#game-table .row.invalid {
+    animation: shake 400ms;
+}
+
+#keyboard {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+}
+
+#keyboard .row {
+    margin-bottom: 8px;
+}
+
+.row {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.square {
+    width: 55px;
+    height: 55px;
+    background-color: #f5f5f5;
+    box-sizing: border-box;
+    border: 1px solid black;
+    margin-right: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.square:last-of-type {
+    margin: 0;
+}
+
+#keyboard button {
+    height: 55px;
+    flex-basis: 45px;
+    font: 700 14px "Noto Sans", sans-serif;
+    margin-right: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: white;
+    box-sizing: border-box;
+    border: 1px solid #555b;
+}
+
+#keyboard button:last-of-type {
+    margin-right: 0;
+}
+
+#keyboard .big-key{
+    flex-grow: 1.5;
+}
+
+#keyboard .big-key:last-of-type {
+    font-size: 22px;
+}
+
+#keyboard .wrong, .square.wrong {
+    background-color: #ca2f1d;
+    color: white;
+}
+
+#keyboard .present, .square.present {
+    background-color: #c2ba26;
+    color: white;
+}
+
+#keyboard .correct, .square.correct {
+    background-color: #18c045;
+    color: white;
+}
+
+.square.winner {
+    animation: bounce 300ms ease-out;
+}
+
+
+#overlay {
+    z-index: 1000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #5555;
+    pointer-events: none;
+    opacity: 0;
+}
+
+#modal {
+    z-index: 1000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 440px;
+    height: 380px;
+    border-radius: 5px;
+    background-color: white;
+    transform: translate(-50%, -50%) scale(0);
+    pointer-events: none;
+    padding: 10px 10px;
+    box-shadow: 1px 0px 25px 10px #1f1b1b50;;
+    transition: transform 0.5s ease-in-out;
+}
+
+#modal.active {
+    pointer-events: all;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#overlay.active {
+    pointer-events: all;
+    opacity: 1;
+}
+
+
+#modal header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header #result {
+    font: 700 32px "Noto Sans", sans-serif;
+    text-align: center;
+    flex-grow: 2;
+    margin: 7px 0;
+    padding-left: 18px;
+}
+
+header #result.correct {
+    color: #18c045;
+}
+
+header #result.wrong {
+    color: #ca2f1d;
+}
+
+#modal-close-button {
+    border: none;
+    background: none;
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    align-self: flex-start;
+    width: 18px
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    font: 700 20px "Noto Sans", sans-serif;
+    text-align: center;
+}
+
+#statistics {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 80%;
+}
+
+.statistic-container {
+    max-width: 50px;
+    height: 67px;
+    text-align: center;
+    font: 700 24px "Noto Sans", sans-serif;
+}
+
+.label {
+    font: 400 12px "Noto Sans", sans-serif;
+    text-align: center;
+    line-height: 1.1em;
+}
+
+
+#graph-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.graph-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 300px;
+}
+
+.guess-num {
+    font: 400 15px "Noto Sans", sans-serif;
+    padding-right: 5px;
+}
+
+.graph-bar {
+    width: 5%;
+    height: 15px;
+    background-color: #18c045;
+    font: 700 12px "Noto Sans", sans-serif;
+    color: white;
+    text-align: right;
+    padding-right: 5px;
+}
+
+#message-box {
+    pointer-events: none;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+}
+
+#message-box .message {
+    opacity: 0;
+    border-radius: 4px;
+    font: 700 14px "Noto Sans", sans-serif;
+    color: black;
+    background-color: #f5f5f5;
+    border: 2px solid black;
+    margin: 10px;
+    padding: 5px 15px;
+    animation: fade 1500ms;
+}
+
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    20% {
+        transform: translateY(-25px);
+    }
+
+    80% {
+        transform: translateY(12px);
+    }
+}
+
+
+@keyframes shake {
+    10%, 40%, 70% {
+        transform: translateX(-3px);
+    }
+    25%, 55%, 90% {
+        transform: translateX(3px);
+    }
+}
+
+@keyframes fade {
+    0%, 75% {
+        opacity: 1;
+    }
+
+}
